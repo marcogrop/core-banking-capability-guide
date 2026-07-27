@@ -1,0 +1,44 @@
+# Summary
+
+- [Introduction](README.md)
+- [Architecture and Reading Guide](00-foundations/architecture-and-reading-guide.md)
+- Capabilities
+  - Business Capabilities
+    - [Customer Management](01-business-capabilities/01-customer-management.md)
+    - [Organization Management](01-business-capabilities/02-organization-management.md)
+    - [Product Catalog](01-business-capabilities/04-product-catalog.md)
+    - [Loan Management](01-business-capabilities/05-loan-management.md)
+    - [Savings Management](01-business-capabilities/06-savings-management.md)
+    - [Deposit Management](01-business-capabilities/07-deposit-management.md)
+    - [Share Management](01-business-capabilities/08-share-management.md)
+  - Policy Capabilities
+    - [Interest Engine](02-policy-capabilities/11-interest-engine.md)
+    - [Fee Engine](02-policy-capabilities/12-fee-engine.md)
+    - [Delinquency Management](02-policy-capabilities/13-delinquency-management.md)
+    - [Collateral Management](02-policy-capabilities/14-collateral-management.md)
+  - Financial Infrastructure
+    - [Accounting](03-financial-infrastructure/09-accounting.md)
+    - [Payment Processing](03-financial-infrastructure/10-payment-processing.md)
+    - [General Ledger](03-financial-infrastructure/15-general-ledger.md)
+  - Information Capabilities
+    - [Reporting](04-information-capabilities/16-reporting.md)
+  - Platform Capabilities
+    - [Identity & Security](05-platform-capabilities/03-identity-and-security.md)
+    - [Workflow & Approval](05-platform-capabilities/17-workflow-and-approval.md)
+    - [Notification](05-platform-capabilities/18-notification.md)
+    - [Integration](05-platform-capabilities/19-integration.md)
+    - [Batch Processing](05-platform-capabilities/20-batch-processing.md)
+    - [Configuration](05-platform-capabilities/21-configuration.md)
+    - [Administration](05-platform-capabilities/22-administration.md)
+    - [Audit](05-platform-capabilities/23-audit.md)
+    - [Platform Services](05-platform-capabilities/24-platform-services.md)
+- Reference
+  - [Capability Index](06-reference/capability-index.md)
+  - [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
+  - [Capability Relationship Index](06-reference/capability-relationship-index.md)
+  - [Lifecycle Index](06-reference/lifecycle-index.md)
+  - [Commands and Business Events Index](06-reference/commands-and-events-index.md)
+  - [Entity and Concept Index](06-reference/entity-and-concept-index.md)
+  - [Recommended Third-Level Business Operations](06-reference/third-level-business-operations.md)
+  - [Core Banking Glossary](06-reference/glossary.md)
+  - [Document Status and Intended Use](06-reference/status-and-intended-use.md)
