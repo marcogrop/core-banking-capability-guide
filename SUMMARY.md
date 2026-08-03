@@ -11,11 +11,14 @@
     - [Savings Management](01-business-capabilities/06-savings-management.md)
     - [Deposit Management](01-business-capabilities/07-deposit-management.md)
     - [Share Management](01-business-capabilities/08-share-management.md)
+    - [Card Management](01-business-capabilities/25-card-management.md)
+    - [Customer Onboarding / KYC](01-business-capabilities/27-customer-onboarding-and-kyc.md)
   - Policy Capabilities
     - [Interest Engine](02-policy-capabilities/11-interest-engine.md)
     - [Fee Engine](02-policy-capabilities/12-fee-engine.md)
     - [Delinquency Management](02-policy-capabilities/13-delinquency-management.md)
     - [Collateral Management](02-policy-capabilities/14-collateral-management.md)
+    - [Limits and Exposure Management](02-policy-capabilities/26-limits-and-exposure-management.md)
   - Financial Infrastructure
     - [Accounting](03-financial-infrastructure/09-accounting.md)
     - [Payment Processing](03-financial-infrastructure/10-payment-processing.md)
@@ -42,3 +45,6 @@
   - [Recommended Third-Level Business Operations](06-reference/third-level-business-operations.md)
   - [Core Banking Glossary](06-reference/glossary.md)
   - [Document Status and Intended Use](06-reference/status-and-intended-use.md)
+- Research and Evolution
+  - [Vendor Capability Research](07-research/vendor-capability-research.md)
+  - [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)

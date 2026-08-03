@@ -4,11 +4,12 @@ A structured, implementation-independent reference for understanding the busines
 
 ## What Is Included
 
-- 24 capability chapters with purpose, business importance, conceptual domain models, lifecycles, workflows, relationships, distinctive aspects, commands, events, invariants, and boundary statements.
+- 27 capability chapters with purpose, business importance, conceptual domain models, lifecycles, workflows, relationships, distinctive aspects, commands, events, invariants, and boundary statements.
 - A shared architecture and reading guide.
 - Extracted domain-model diagrams as named image assets.
 - Cross-capability, lifecycle, entity, command, and event indexes.
 - A glossary and third-level business-operation specification guidance.
+- Draft vendor-research and CBCM gap-assessment material for evolving the model while preserving vendor neutrality.
 
 ## Start Here
 
@@ -16,6 +17,7 @@ A structured, implementation-independent reference for understanding the busines
 2. [Capability Index](06-reference/capability-index.md)
 3. [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
 4. [Recommended Third-Level Business Operations](06-reference/third-level-business-operations.md)
+5. [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)
 
 ## Repository Structure
 
@@ -32,6 +34,8 @@ core-banking-capability-guide/
 ├── 06-reference/
 └── assets/images/
 ```
+
+Research and evolution material is kept in `07-research/`.
 
 ## Documentation Conventions
 
