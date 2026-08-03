@@ -31,8 +31,10 @@ This index collects the directional collaboration descriptions defined by each c
 | [Identity & Security](../05-platform-capabilities/03-identity-and-security.md) | Integration | Authenticates external clients, service accounts, and identity providers. |
 | [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Interest Engine | Supplies calculation methods, rate plans, day-count, and posting conventions. |
 | [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Fee Engine | Supplies charge definitions, triggers, schedules, and waiver rules. |
+| [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Limits and Exposure Management | Supplies limit types, facility rules, overdraft rules, utilization behavior, and product-level exposure constraints. |
 | [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Accounting | Consumes product-to-ledger mappings and posting profiles. |
-| [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Loan / Savings / Deposit / Share Management | Instantiate contracts from effective product versions. |
+| [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Loan / Savings / Deposit / Share / Card Management | Instantiate contracts or access instruments from effective product versions. |
+| [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Customer Onboarding / KYC | Uses product eligibility and due-diligence requirements during onboarding. |
 | [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Configuration | Provides institution-wide defaults, feature flags, and code tables. |
 | [Product Catalog](../01-business-capabilities/04-product-catalog.md) | Reporting | Uses product hierarchy and versions as primary analytical dimensions. |
 | [Loan Management](../01-business-capabilities/05-loan-management.md) | Customer Management | Identifies borrowers, co-borrowers, guarantors, and related parties. |
@@ -71,10 +73,11 @@ This index collects the directional collaboration descriptions defined by each c
 | [Accounting](../03-financial-infrastructure/09-accounting.md) | Batch Processing | Runs accrual, provisioning, aggregation, and scheduled posting. |
 | [Accounting](../03-financial-infrastructure/09-accounting.md) | Audit and Reporting | Trace source-to-entry lineage and produce accounting reports. |
 | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Savings Management | Provides source and destination account state and balances. |
-| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Loan and Deposit Management | Receive repayments, disbursements, contributions, and maturity proceeds. |
+| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Loan, Deposit, Share, and Card Management | Receive repayments, disbursements, contributions, maturity proceeds, card-originated movements, and issuer settlement context. |
+| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Limits and Exposure Management | Supplies limit, overdraft, exposure, and authorization constraints where payment movement consumes availability. |
 | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Accounting and General Ledger | Record cash, settlement, suspense, and transfer entries. |
-| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Integration | Connects payment gateways, switches, clearing systems, and banks. |
-| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Batch Processing | Executes standing instructions, settlement cycles, and reconciliation. |
+| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Integration | Connects payment gateways, switches, clearing systems, banks, processors, fraud services, and scheme endpoints. |
+| [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Batch Processing | Executes standing instructions, bulk files, settlement cycles, and reconciliation. |
 | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Notification | Communicates payment status and exceptions. |
 | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) | Audit | Maintains end-to-end transaction trace. |
 | [Interest Engine](../02-policy-capabilities/11-interest-engine.md) | Product Catalog | Selects interest methods and parameters for products. |
@@ -171,3 +174,30 @@ This index collects the directional collaboration descriptions defined by each c
 | [Platform Services](../05-platform-capabilities/24-platform-services.md) | Configuration | Defines reference data, metadata, and localization settings. |
 | [Platform Services](../05-platform-capabilities/24-platform-services.md) | Notification and Reporting | Use document, localization, and file services. |
 | [Platform Services](../05-platform-capabilities/24-platform-services.md) | Administration | Operates storage, indexing, and shared technical services. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Customer Management | Identifies cardholders, authorized users, contact points, and party relationships. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Customer Onboarding / KYC | Provides onboarding status and due-diligence conditions required before card issuance. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Product Catalog | Defines card products, card fees, eligibility, controls, and linked account rules. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Savings Management | Provides linked deposit or transactional account state and available funds. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Loan Management | Provides credit-card, revolving-credit, or loan-backed contract context where applicable. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Limits and Exposure Management | Supplies card authorization limits, credit utilization, and breach decisions. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Fee Engine | Calculates card fees, transaction charges, and waivers. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Payment Processing | Executes card-originated financial movements, settlement, returns, and reversals. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Integration | Connects processors, token services, wallets, fraud services, and card networks. |
+| [Card Management](../01-business-capabilities/25-card-management.md) | Audit | Preserves authorization, clearing, dispute, status, and processor evidence. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Customer Management | Supplies party, group, household, organization, and related-party context. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Product Catalog | Defines product-level limit rules, eligibility, and utilization behavior. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Loan Management | Consumes facility, drawdown, disbursement, refinance, and restructure limit decisions. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Savings Management | Consumes overdraft, hold, account, and available-balance limit decisions. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Card Management | Consumes card authorization, velocity, and credit-limit decisions. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Collateral Management | Supplies pledged coverage, LTV, valuation, and secured exposure context. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Workflow & Approval | Coordinates limit approval, renewal, breach, override, and exception handling. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Accounting | May consume exposure state for provisions, commitments, and risk-related postings. |
+| [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) | Reporting | Produces exposure, concentration, utilization, breach, and facility reports. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Customer Management | Receives accepted customer, party relationship, contact, and classification facts. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Organization Management | Supplies servicing office, channel, staff, and assignment context. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Product Catalog | Supplies requested product eligibility and onboarding requirements. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Identity & Security | May create or link digital identities after the customer or applicant is eligible. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Workflow & Approval | Coordinates enhanced due diligence, exceptions, and approval decisions. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Integration | Connects identity verification, document verification, registry, tax, sanctions, AML, and fraud services. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Audit | Preserves evidence, screening, decisions, and customer-conversion lineage. |
+| [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) | Reporting | Produces onboarding funnel, rejection, remediation, and compliance operational reports. |

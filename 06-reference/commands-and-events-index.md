@@ -206,6 +206,58 @@ This index is representative rather than exhaustive. Operations should be refine
 | Reject Request | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
 | Return Request | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
 | Start Workflow | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
+| Activate Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Approve Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Block Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Close Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Issue Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Open Card Dispute | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Record Authorization Hold | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Record Clearing Advice | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Release Authorization Hold | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Renew Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Replace Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Request Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Suspend Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Tokenize Card | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Update Card Controls | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Activate Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Approve Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Approve Limit Override | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Close Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Define Limit Type | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Propose Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Recalculate Exposure | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Record Limit Breach | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Record Utilization | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Release Exposure | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Renew Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Reserve Exposure | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Suspend Limit | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Add Applicant Party | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Approve Onboarding | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Convert to Customer | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Expire Onboarding Case | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Record Screening Result | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Reject Onboarding | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Request Remediation | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Request Screening | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Start Onboarding | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Submit Evidence | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Configure Product Bundle | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Configure Product Limits | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Define Product Migration | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Migrate Product Contracts | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Simulate Product | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Supersede Product Version | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Validate Product Version | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Execute Bulk Payment | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Recall Payment | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Reconcile Settlement | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Register Direct Debit Mandate | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Repair Payment | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Route Payment | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Validate Payment | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
 
 ## Business Events
 
@@ -359,3 +411,54 @@ This index is representative rather than exhaustive. Operations should be refine
 | Workflow Cancelled | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
 | Workflow Completed | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
 | Workflow Started | [Workflow & Approval](../05-platform-capabilities/17-workflow-and-approval.md) |
+| Authorization Hold Recorded | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Authorization Hold Released | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Activated | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Approved | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Blocked | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Closed | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Controls Changed | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Dispute Opened | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Issued | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Renewed | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Replaced | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Requested | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Suspended | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Card Tokenized | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Clearing Advice Received | [Card Management](../01-business-capabilities/25-card-management.md) |
+| Exposure Recalculated | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Exposure Released | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Exposure Reserved | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Activated | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Approved | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Breached | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Closed | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Override Approved | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Proposed | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Renewed | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Suspended | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Limit Type Defined | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Utilization Recorded | [Limits and Exposure Management](../02-policy-capabilities/26-limits-and-exposure-management.md) |
+| Applicant Party Added | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Customer Converted | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Evidence Submitted | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Onboarding Approved | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Onboarding Case Expired | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Onboarding Rejected | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Onboarding Started | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Remediation Requested | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Screening Requested | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Screening Result Recorded | [Customer Onboarding / KYC](../01-business-capabilities/27-customer-onboarding-and-kyc.md) |
+| Product Contracts Migrated | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Product Draft Created | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Product Simulated | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Product Version Superseded | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Product Version Validated | [Product Catalog](../01-business-capabilities/04-product-catalog.md) |
+| Bulk Payment Executed | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Direct Debit Mandate Registered | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Recalled | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Reconciled | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Repaired | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Routed | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Submitted to Scheme | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
+| Payment Validated | [Payment Processing](../03-financial-infrastructure/10-payment-processing.md) |
