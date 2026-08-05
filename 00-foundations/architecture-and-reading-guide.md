@@ -7,6 +7,8 @@ status: reference
 
 # Architecture and Reading Guide
 
+Start with the [CBCM Charter](cbcm-charter.md) for the model's purpose, scope, and intended uses. The CBCM is primarily a reference model for defining, implementing, and governing a banking platform; vendor and solution evaluation is a downstream application of the same capability structure.
+
 A capability is a stable business responsibility with its own language, rules, state, and data ownership. A capability may be implemented as a module, service, bounded context, or group of components; the taxonomy intentionally does not prescribe deployment topology.
 
 > **Interpretation Principle:** The domain model diagrams are conceptual ownership models. They identify the most important aggregates, entities, and value concepts, but they are not intended as physical database schemas.

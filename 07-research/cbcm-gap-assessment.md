@@ -40,13 +40,13 @@ This assessment translates the first vendor research pass into candidate modific
 
 The first wave should focus on high-signal changes that improve vendor comparison without over-expanding the model.
 
-| Wave item | Action | Notes |
-|---|---|---|
-| Card Management / Card Servicing | Add capability chapter | Strongest missing business capability. Distinct from payment execution because it owns card instrument lifecycle and issuer controls. |
-| Limits and Exposure Management | Add capability chapter | Strong cross-product policy/risk capability. Should own limits, utilization, availability, and breach events. |
-| Product Design and Lifecycle | Split or substantially expand Product Catalog | Preserve Product Catalog as the authoritative product definition owner, but add simulation, product version lifecycle, arrangement construction, pricing packages, and product migration semantics. |
-| Customer Onboarding / KYC | Add capability chapter or split from Customer Management | Keep Customer Management as party/customer master; give onboarding its own lifecycle and evidence boundary. |
-| Payments Orchestration refinement | Expand existing Payment Processing chapter | Clarify scheme connectivity, routing, direct debits, exception handling, settlement integration, liquidity dependency, and screening hooks. |
+| Wave item                         | Action                                                   | Notes                                                                                                                                                                                               |
+| --------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Card Management / Card Servicing  | Add capability chapter                                   | Strongest missing business capability. Distinct from payment execution because it owns card instrument lifecycle and issuer controls.                                                               |
+| Limits and Exposure Management    | Add capability chapter                                   | Strong cross-product policy/risk capability. Should own limits, utilization, availability, and breach events.                                                                                       |
+| Product Design and Lifecycle      | Split or substantially expand Product Catalog            | Preserve Product Catalog as the authoritative product definition owner, but add simulation, product version lifecycle, arrangement construction, pricing packages, and product migration semantics. |
+| Customer Onboarding / KYC         | Add capability chapter or split from Customer Management | Keep Customer Management as party/customer master; give onboarding its own lifecycle and evidence boundary.                                                                                         |
+| Payments Orchestration refinement | Expand existing Payment Processing chapter               | Clarify scheme connectivity, routing, direct debits, exception handling, settlement integration, liquidity dependency, and screening hooks.                                                         |
 
 ## Candidate Capability Definitions
 

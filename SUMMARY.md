@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](README.md)
+- [CBCM Charter](00-foundations/cbcm-charter.md)
 - [Architecture and Reading Guide](00-foundations/architecture-and-reading-guide.md)
 - Capabilities
   - Business Capabilities
@@ -42,7 +43,8 @@
   - [Lifecycle Index](06-reference/lifecycle-index.md)
   - [Commands and Business Events Index](06-reference/commands-and-events-index.md)
   - [Entity and Concept Index](06-reference/entity-and-concept-index.md)
-  - [Recommended Third-Level Business Operations](06-reference/third-level-business-operations.md)
+  - [Three-Level Capability Taxonomy](06-reference/third-level-business-operations.md)
+  - [Capability Feature Operation Template](06-reference/capability-feature-operation-template.md)
   - [Core Banking Glossary](06-reference/glossary.md)
   - [Document Status and Intended Use](06-reference/status-and-intended-use.md)
 - Research and Evolution

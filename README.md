@@ -8,16 +8,18 @@ A structured, implementation-independent reference for understanding the busines
 - A shared architecture and reading guide.
 - Extracted domain-model diagrams as named image assets.
 - Cross-capability, lifecycle, entity, command, and event indexes.
-- A glossary and third-level business-operation specification guidance.
+- A glossary, three-level capability taxonomy, and business-operation specification template.
 - Draft vendor-research and CBCM gap-assessment material for evolving the model while preserving vendor neutrality.
 
 ## Start Here
 
-1. [Architecture and Reading Guide](00-foundations/architecture-and-reading-guide.md)
-2. [Capability Index](06-reference/capability-index.md)
-3. [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
-4. [Recommended Third-Level Business Operations](06-reference/third-level-business-operations.md)
-5. [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)
+1. [CBCM Charter](00-foundations/cbcm-charter.md)
+2. [Architecture and Reading Guide](00-foundations/architecture-and-reading-guide.md)
+3. [Capability Index](06-reference/capability-index.md)
+4. [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
+5. [Three-Level Capability Taxonomy](06-reference/third-level-business-operations.md)
+6. [Capability Feature Operation Template](06-reference/capability-feature-operation-template.md)
+7. [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)
 
 ## Repository Structure
 
@@ -43,4 +45,4 @@ Each capability file contains YAML front matter with a stable identifier, capabi
 
 ## Intended Use
 
-The collection is suitable for capability mapping, bounded-context design, requirements discovery, specification extraction, API and event modeling, implementation planning, training, and AI-assisted analysis. It is not legal, regulatory, accounting, or product advice.
+The collection is suitable for custom banking platform definition, capability mapping, bounded-context design, requirements discovery, specification extraction, API and event modeling, implementation planning, architecture governance, vendor evaluation, training, and AI-assisted analysis. It is not legal, regulatory, accounting, or product advice.
