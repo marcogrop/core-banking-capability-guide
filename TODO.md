@@ -18,9 +18,9 @@ The first PoC is successful when CBCM can be used to:
 - identify capability gaps and build / buy / partner / BPO decisions,
 - support architecture review with clear ownership, events, invariants, and evidence.
 
-## PoC Scope
+## Recommended PoC Scope
 
-The first scenario is a basic retail payment account platform.
+The recommended first scenario is a basic retail payment account platform.
 
 This scope is narrow enough to be manageable, but rich enough to exercise important CBCM concepts:
 
@@ -45,6 +45,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [x] Add reusable capability-feature-operation template.
 - [ ] Decide mandatory vs optional operation-spec fields.
 - [ ] Decide naming conventions for features, operations, commands, and events.
+- [ ] Decide how to explicitly select a subset of the features and operations for subsequent refinement steps
 - [ ] Decide whether read-only governed views belong in operation specs.
 
 ### 2. Method Validation
