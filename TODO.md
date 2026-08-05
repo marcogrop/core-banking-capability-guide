@@ -45,6 +45,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [x] Add reusable capability-feature-operation template.
 - [ ] Decide mandatory vs optional operation-spec fields.
 - [ ] Decide naming conventions for features, operations, commands, and events.
+- [ ] Change project name prom Capability Model to Canonical Banking Capability Model (CBCM)
 - [ ] Decide how to explicitly select a subset of the features and operations for subsequent refinement steps
 - [ ] Decide whether read-only governed views belong in operation specs.
 
