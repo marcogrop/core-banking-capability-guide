@@ -6,6 +6,7 @@
 - Capabilities
   - Business Capabilities
     - [Customer Management](01-business-capabilities/01-customer-management.md)
+      - [Customer Management Operations](01-business-capabilities/01-customer-management-operations.md)
     - [Organization Management](01-business-capabilities/02-organization-management.md)
     - [Product Catalog](01-business-capabilities/04-product-catalog.md)
     - [Loan Management](01-business-capabilities/05-loan-management.md)
