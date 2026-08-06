@@ -27,6 +27,14 @@ Use this template when decomposing a CBCM capability into implementable features
 |---|---|---|---|
 |  |  |  |  |
 
+## Refinement Selection
+
+Use this section to record which features and operations are selected for the current scenario, implementation increment, or model review. Detailed selection rules are defined in the [Three-Level Capability Taxonomy](third-level-business-operations.md).
+
+| Feature | Operation | Scenario relevance | Priority | Refinement status | Selection reason |
+|---|---|---|---|---|---|
+|  |  |  | P0 / P1 / P2 / P3 | Identified / Candidate / Selected / Drafted / Reviewed / Approved / Deferred |  |
+
 ## Business Operations
 
 ### Operation: `<Verb Phrase>`
