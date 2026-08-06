@@ -31,23 +31,25 @@ Use this template when decomposing a CBCM capability into implementable features
 
 ### Operation: `<Verb Phrase>`
 
-| Specification element | Description |
-|---|---|
-| Owning capability |  |
-| Feature |  |
-| Command |  |
-| Purpose |  |
-| Actor and authorization |  |
-| Inputs |  |
-| Preconditions |  |
-| Invariants |  |
-| State transition |  |
-| Accounting consequence |  |
-| Business events |  |
-| Idempotency rule |  |
-| Error model |  |
-| Evidence required |  |
-| Sandbox or test scenario |  |
+| Specification element | Requirement | Description |
+|---|---|---|
+| Owning capability | Mandatory |  |
+| Feature | Mandatory |  |
+| Command / query / view | Conditional |  |
+| Purpose | Mandatory |  |
+| Actor and authorization | Mandatory |  |
+| Inputs | Mandatory |  |
+| Preconditions | Mandatory |  |
+| Invariants | Mandatory |  |
+| State transition | Mandatory |  |
+| Accounting consequence | Conditional |  |
+| Business events | Conditional |  |
+| Idempotency rule | Conditional |  |
+| Error model | Mandatory |  |
+| Evidence required | Mandatory |  |
+| Sandbox or test scenario | Mandatory |  |
+
+Use `None` for `State transition` when the operation is a read-only governed view. Use `Not applicable` for conditional fields that are intentionally excluded, such as accounting consequence for non-financial operations or idempotency for read-only views.
 
 ## Cross-Capability Collaborations
 
@@ -76,4 +78,3 @@ Use this template when decomposing a CBCM capability into implementable features
 | Sandbox test coverage |  |
 | Known gap patterns |  |
 | Acceptance criteria |  |
-
