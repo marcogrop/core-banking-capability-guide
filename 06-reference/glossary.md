@@ -1,11 +1,11 @@
 ---
-id: core-banking-glossary
-title: "Core Banking Glossary"
+id: cbcm-glossary
+title: "CBCM Glossary"
 category: Reference
 status: reference
 ---
 
-# Core Banking Glossary
+# CBCM Glossary
 
 | **Term** | **Definition** |
 |---|---|
