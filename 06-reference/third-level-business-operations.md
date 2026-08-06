@@ -38,24 +38,59 @@ This structure connects the conceptual model to executable design. It allows tea
 
 Each Business Operation should be specified with enough detail to support implementation, testing, governance, and evaluation.
 
-| Specification element | Purpose |
+| Specification element | Requirement | Purpose |
+|---|---|---|
+| Operation name | Mandatory | Stable business verb phrase, such as Make Repayment or Record Authorization Hold. |
+| Owning capability | Mandatory | Capability that owns the operation and its committed state change or governed view. |
+| Feature | Mandatory | Functional grouping within the capability. |
+| Command / query / view | Conditional | Imperative request for state-changing operations; query or view name for read-only governed views. |
+| Purpose | Mandatory | Business outcome supported by the operation. |
+| Actor and authorization | Mandatory | Who or what may request the operation and which authority is required. |
+| Inputs | Mandatory | Required and optional request data, identifiers, amounts, dates, filters, references, and evidence. |
+| Preconditions | Mandatory | Facts that must already be true before execution or view access. |
+| Invariants | Mandatory | Rules that must remain true before and after execution, or during controlled access for read-only views. |
+| State transition | Mandatory | Explicit change in lifecycle state, balances, reservations, evidence, or ownership record. Use None for read-only governed views. |
+| Accounting consequence | Conditional | Journal intent, posting instruction, or financial event derived from the operation. Use Not applicable for non-financial operations. |
+| Business events | Conditional | Committed facts published after successful state changes. Use None when no domain event is expected. |
+| Idempotency rule | Conditional | How duplicate state-changing requests are recognized and safely handled. Use Not applicable for read-only governed views. |
+| Error model | Mandatory | Stable business failure codes and recoverability expectations. |
+| Evidence required | Mandatory | Documents, traces, approvals, calculations, logs, access records, or external references needed for audit and evaluation. |
+| Sandbox or test scenario | Mandatory | Minimal scenario that proves the operation or governed view works as claimed. |
+
+## Field Applicability Rules
+
+| Rule | Explanation |
 |---|---|
-| Operation name | Stable business verb phrase, such as Make Repayment or Record Authorization Hold. |
-| Owning capability | Capability that owns the operation and its committed state change. |
-| Feature | Functional grouping within the capability. |
-| Command | Imperative request to perform the operation. |
-| Purpose | Business outcome supported by the operation. |
-| Actor and authorization | Who or what may request the operation and which authority is required. |
-| Inputs | Required and optional request data, identifiers, amounts, dates, references, and evidence. |
-| Preconditions | Facts that must already be true before execution. |
-| Invariants | Rules that must remain true before and after execution. |
-| State transition | Explicit change in lifecycle state, balances, reservations, evidence, or ownership record. |
-| Accounting consequence | Journal intent, posting instruction, or financial event derived from the operation, where relevant. |
-| Business events | Committed facts published after successful execution. |
-| Idempotency rule | How duplicate requests are recognized and safely handled. |
-| Error model | Stable business failure codes and recoverability expectations. |
-| Evidence required | Documents, traces, approvals, calculations, logs, or external references needed for audit and evaluation. |
-| Sandbox or test scenario | Minimal scenario that proves the operation works as claimed. |
+| Mandatory fields must be completed | A mandatory field should not be left blank in an operation specification. |
+| Conditional fields require a value or clear exclusion | Conditional fields should be completed when relevant, or marked None / Not applicable when they do not apply. |
+| Prefer explicit Not applicable | Use Not applicable rather than leaving a conditional field blank when the exclusion is intentional and obvious from the operation type. |
+| Accounting consequence is conditional | It is mandatory for financial operations and normally Not applicable for non-financial operations. |
+| Business events are conditional | State-changing operations normally emit business events; read-only governed views normally do not. |
+| Idempotency is conditional | State-changing commands should define idempotency behavior; read-only governed views normally mark it Not applicable. |
+| Implementation detail does not replace business specification | API endpoint names, table names, and screen names may be added later, but they do not replace operation purpose, state transition, invariants, and evidence. |
+
+## Read-Only Governed Views
+
+CBCM operation documents may include read-only governed views when the view exposes sensitive, regulated, operationally critical, or decision-relevant evidence. These views do not mutate domain state, but they still require explicit access control, masking, auditability, retention, and test coverage.
+
+A read-only governed view uses the same operation specification template and is identified by:
+
+| Field | Expected treatment |
+|---|---|
+| Operation name | Use a read verb such as View, Search, Retrieve, List, or Export. |
+| Command / query / view | Use the query or view name rather than a state-changing command. |
+| State transition | None. |
+| Accounting consequence | Not applicable, unless the view itself triggers a regulated reporting or evidence workflow. |
+| Business events | None, unless the domain treats access as a business-significant fact. Audit may still record access. |
+| Idempotency rule | Not applicable. |
+| Evidence required | Access log, actor, timestamp, filters, masking decision, source data lineage, and correlation identifier where relevant. |
+| Sandbox or test scenario | Demonstrate authorized access, denied access, masking behavior, filtering, and evidence traceability. |
+
+Example:
+
+```text
+Customer Management -> Customer History and Audit View -> View Customer History
+```
 
 ## Implementation Guidance
 
@@ -108,4 +143,3 @@ This avoids comparing vendor module names directly. A vendor may claim to suppor
 ## Reusable Template
 
 Use the [Capability Feature Operation Template](capability-feature-operation-template.md) when decomposing a capability into features and operations.
-

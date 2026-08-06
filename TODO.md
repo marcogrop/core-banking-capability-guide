@@ -43,7 +43,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [x] Add CBCM charter.
 - [x] Formalize the three-level taxonomy: Capability -> Feature -> Business Operation.
 - [x] Add reusable capability-feature-operation template.
-- [ ] Decide mandatory vs optional operation-spec fields.
+- [x] Decide mandatory vs optional operation-spec fields.
 - [ ] Decide naming conventions for features, operations, commands, and events.
 - [ ] Change project name prom Capability Model to Canonical Banking Capability Model (CBCM)
 - [ ] Decide how to explicitly select a subset of the features and operations for subsequent refinement steps
@@ -150,4 +150,3 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 Use this section to capture review comments before turning them into changes.
 
 - 
-
