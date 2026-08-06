@@ -29,6 +29,7 @@ This project originated as the Core Banking Capability Reference Guide and is ev
 canonical-banking-capability-model/
 |-- README.md
 |-- SUMMARY.md
+|-- TODO.md
 |-- 00-foundations/
 |-- 01-business-capabilities/
 |-- 02-policy-capabilities/
@@ -41,7 +42,8 @@ canonical-banking-capability-model/
 `-- assets/images/
 ```
 
-The repository/folder name is retained for now. Research and evolution material is kept in `07-research/`.
+Research and evolution material is kept in `07-research/`.
+Roadmap is published int TODO.md
 
 ## Documentation Conventions
 
