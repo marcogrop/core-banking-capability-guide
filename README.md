@@ -38,7 +38,6 @@ canonical-banking-capability-model/
 |-- 05-platform-capabilities/
 |-- 06-reference/
 |-- 07-research/
-|-- 08-RFP/
 `-- assets/images/
 ```
 
