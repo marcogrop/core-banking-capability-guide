@@ -54,7 +54,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [x] Review Customer Management operations pilot.
 - [x] Polish Customer Management operations pilot.
 - [x] Decide whether operation documents should live beside capability chapters or under a dedicated operations folder.
-- [ ] Capture lessons learned from Customer Management.
+- [x] Capture lessons learned from Customer Management.
 - [ ] Create a reusable review checklist for future operation documents.
 
 ### 3. Capability Decomposition PoC

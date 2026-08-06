@@ -86,3 +86,16 @@ Where:
 add this rule:
 
 > Cross-capability collaborations must identify direction, interaction style, consumed input, produced output, and business purpose. They describe required business contracts, not mandatory runtime topology.
+
+## Lessons Learned from Customer Management
+
+- The three-level taxonomy works: Customer Management decomposes cleanly into capability -> feature -> business operation without implying a service topology.
+- Operation documents should be separate first-class artefacts under `07-operations/`; capability chapters should stay canonical summaries and link to detailed decompositions.
+- The feature map is useful as a bridge, but the `Refinement Selection` table is what prevents the document from becoming exhaustive too early.
+- P0/P1/P2 selection should be scenario-led. For the retail payment account lens, only operations that prove the scenario or a risky boundary need full detail.
+- The operation template is slightly heavy for simple customer-master changes, but the weight is justified because it exposes authorization, evidence, invariants, idempotency, and error behavior.
+- Read-only governed views belong in operation docs only when they are business-significant, audited, privacy-sensitive, or needed to prove a scenario.
+- State-changing operations should emit outcome-specific events where useful, while still allowing broader events such as `Customer Profile Changed`.
+- Generic collaboration tables are not enough. Cross-capability relationships should be expressed as operation-level contract maps with direction, interaction type, consumed input, produced output, and purpose.
+- Operation granularity needs active control: broad operations such as `Update Profile` are acceptable only when accompanied by a rule to split them when authorization, evidence, lifecycle, or regulatory treatment differs.
+- Future, more complex capabilities such as Payment Processing will need stricter feature boundaries and possibly smaller operation documents to remain readable.
