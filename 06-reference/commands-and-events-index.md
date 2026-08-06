@@ -65,8 +65,12 @@ This index is representative rather than exhaustive. Operations should be refine
 | Add Identifier | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Close Customer | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Create Customer | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Lift Customer Restriction | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Link Related Party | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Restrict Customer | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Submit Customer | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Transfer Customer | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Update Address | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Update Profile | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Assess Write-Off Eligibility | [Delinquency Management](../02-policy-capabilities/13-delinquency-management.md) |
 | Classify Contract | [Delinquency Management](../02-policy-capabilities/13-delinquency-management.md) |
@@ -301,9 +305,14 @@ This index is representative rather than exhaustive. Operations should be refine
 | Exchange Rate Published | [Configuration](../05-platform-capabilities/21-configuration.md) |
 | Feature Flag Changed | [Configuration](../05-platform-capabilities/21-configuration.md) |
 | Customer Activated | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Customer Address Added | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Customer Closed | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Customer Created | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Customer Identifier Added | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Customer Profile Changed | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Customer Relationship Linked | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Customer Restricted | [Customer Management](../01-business-capabilities/01-customer-management.md) |
+| Customer Submitted | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Customer Transferred | [Customer Management](../01-business-capabilities/01-customer-management.md) |
 | Collection Case Opened | [Delinquency Management](../02-policy-capabilities/13-delinquency-management.md) |
 | Contract Cured | [Delinquency Management](../02-policy-capabilities/13-delinquency-management.md) |

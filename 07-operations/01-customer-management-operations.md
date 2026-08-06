@@ -36,21 +36,40 @@ The purpose is method validation. The operation set is intentionally representat
 | Customer Profile | Create and maintain accepted customer master data. | Customer, Customer Type, Legal Form, Preferred Language, Dynamic Data Record | Create Customer; Update Profile |
 | Customer Lifecycle | Control customer submission, activation, closure, and lifecycle status. | Status, Activation Date, Closure Reason, Customer State Transition | Submit Customer; Activate Customer; Close Customer |
 | Customer Identification | Maintain typed identifiers and external references after customer creation. | Customer Identifier, External Identifier, Identifier Type, Identifier Scope | Add Identifier |
-| Contact and Address Management | Maintain customer addresses and contact points used by servicing, notification, and reporting. | Address, Contact Point, Consent, Preferred Channel | Add Address |
+| Contact and Address Management | Maintain customer addresses and contact points used by servicing, notification, and reporting. | Address, Contact Point, Consent, Preferred Channel | Add Address; Update Address |
 | Customer Relationships | Maintain related-party roles and relationship history. | Customer Relationship, Related Party, Guarantor, Beneficiary, Signatory | Link Related Party |
 | Customer Servicing Assignment | Assign institutional ownership and servicing responsibility. | Office Assignment, Staff Assignment, Transfer Reason | Transfer Customer |
-| Customer Status and Restrictions | Apply operational restrictions that affect servicing eligibility without closing the customer. | Restriction, Reason Code, Effective Period, Review Date | Restrict Customer |
+| Customer Status and Restrictions | Apply operational restrictions that affect servicing eligibility without closing the customer. | Restriction, Reason Code, Effective Period, Review Date | Restrict Customer; Lift Customer Restriction |
 | Customer History and Audit View | Expose customer timeline and change evidence for servicing, compliance, and investigation. | Customer Note, Change History, Audit Reference, Document Reference | View Customer History |
+
+## Refinement Selection
+
+This pilot uses the retail payment account lens to validate the selection method without making Customer Management exhaustive.
+
+| Feature | Operation | Scenario relevance | Priority | Refinement status | Selection reason |
+|---|---|---|---|---|---|
+| Customer Profile | Create Customer | Required to create the customer master needed before opening or maintaining a retail payment account. | P0 | Drafted | Proves customer master creation and source/onboarding lineage. |
+| Customer Profile | Update Profile | Required to maintain customer attributes used by servicing, eligibility, and evidence. | P0 | Drafted | Proves auditable profile change behavior. |
+| Customer Identification | Add Identifier | Required when account opening depends on typed customer identifiers. | P0 | Drafted | Proves scoped identifiers, evidence, and uniqueness controls. |
+| Contact and Address Management | Add Address | Required when account opening or servicing depends on address evidence and communication details. | P0 | Drafted | Proves address typing, evidence, and history. |
+| Customer Lifecycle | Submit Customer | Required to move a draft customer into activation review. | P0 | Drafted | Proves lifecycle transition before activation. |
+| Customer Lifecycle | Activate Customer | Required before product origination or account opening can reference the customer. | P0 | Drafted | Proves activation authority and eligibility evidence. |
+| Customer Status and Restrictions | Restrict Customer | Required to show downstream account usage controls. | P0 | Drafted | Proves restriction evidence and downstream eligibility exposure. |
+| Customer History and Audit View | View Customer History | Required to prove governed access to customer evidence and change history. | P0 | Drafted | Proves read-only governed view treatment. |
+| Contact and Address Management | Update Address | Useful counterpart to Add Address for lifecycle completeness, but not fully specified in this pilot. | P1 | Candidate | Tests whether add-only operations need update/retire counterparts. |
+| Customer Status and Restrictions | Lift Customer Restriction | Useful counterpart to Restrict Customer for temporary controls, review dates, and eligibility restoration. | P1 | Candidate | Tests lifecycle completion for operational restrictions. |
+| Customer Servicing Assignment | Transfer Customer | Not required to prove the basic retail payment account scenario. | P2 | Deferred | Keep identified, but defer detailed refinement unless servicing transfer becomes part of the scenario. |
+| Customer Relationships | Link Related Party | Scenario-dependent for joint holders, signatories, guardians, or authorized users. | P2 | Deferred | Keep identified, but refine when the account scenario requires related-party roles. |
 
 ## Business Operations
 
 ### Operation: Create Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Profile |
-| Command | Create Customer |
+| Command / query / view name | Create Customer |
 | Purpose | Create an authoritative customer master record for an accepted person, organization, group, or center. |
 | Actor and authorization | Back-office user, onboarding conversion process, migration process, or authorized API client with customer-create permission. |
 | Inputs | Customer type, legal form, name, servicing office, preferred language, contact summary, source reference, optional onboarding case reference, and idempotency key. |
@@ -66,11 +85,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Update Profile
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Profile |
-| Command | Update Profile |
+| Command / query / view name | Update Profile |
 | Purpose | Apply an auditable change to customer master attributes such as name, legal form details, preferred language, configurable attributes, or profile notes. |
 | Actor and authorization | Back-office user, authorized API client, or controlled data-correction process with profile-update permission. |
 | Inputs | Customer identifier, changed fields, effective date where applicable, reason code, supporting evidence reference, and idempotency key. |
@@ -84,13 +103,15 @@ The purpose is method validation. The operation set is intentionally representat
 | Evidence required | Changed-field diff, reason, actor, timestamp, effective date, and supporting evidence reference where required. |
 | Sandbox or test scenario | Update preferred language and a configurable profile attribute, then verify change history and Customer Profile Changed event. |
 
+Granularity note: split this operation into more specific operations when changed attributes have distinct authorization, evidence, lifecycle, or regulatory implications.
+
 ### Operation: Add Identifier
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Identification |
-| Command | Add Identifier |
+| Command / query / view name | Add Identifier |
 | Purpose | Add a typed customer identifier, such as tax identifier, national identifier, registry number, or external system identifier. |
 | Actor and authorization | Back-office user, onboarding conversion process, migration process, or authorized API client with identifier-management permission. |
 | Inputs | Customer identifier, identifier type, identifier value, issuing country or authority, validity period, evidence reference, and idempotency key. |
@@ -98,7 +119,7 @@ The purpose is method validation. The operation set is intentionally representat
 | Invariants | Active identifiers are unique within their configured scope; identifier history is preserved; sensitive identifiers follow masking and access-control policy. |
 | State transition | Identifier is added to customer identification history as active, pending verification, or historical according to policy. |
 | Accounting consequence | Not applicable. |
-| Business events | Customer Profile Changed |
+| Business events | Customer Identifier Added; Customer Profile Changed |
 | Idempotency rule | A repeated add request with the same idempotency key and identifier values returns the existing identifier record. |
 | Error model | Customer not found; unsupported identifier type; invalid format; duplicate identifier; missing evidence; idempotency conflict. |
 | Evidence required | Identifier evidence reference, validation outcome, actor, timestamp, and uniqueness-check result. |
@@ -106,11 +127,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Add Address
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Contact and Address Management |
-| Command | Add Address |
+| Command / query / view name | Add Address |
 | Purpose | Add a structured address for servicing, correspondence, residency, tax, or legal purposes. |
 | Actor and authorization | Back-office user, customer-servicing process, onboarding conversion process, or authorized API client with address-management permission. |
 | Inputs | Customer identifier, address type, address lines, locality, country, postal code, effective period, verification status, evidence reference, and idempotency key. |
@@ -118,7 +139,7 @@ The purpose is method validation. The operation set is intentionally representat
 | Invariants | Address history is preserved; effective periods do not create ambiguous primary address state; privacy and masking rules apply to address access. |
 | State transition | Address is added as active, pending verification, or historical according to effective period and verification status. |
 | Accounting consequence | Not applicable. |
-| Business events | Customer Profile Changed |
+| Business events | Customer Address Added; Customer Profile Changed |
 | Idempotency rule | A repeated add request with the same idempotency key and address payload returns the existing address record. |
 | Error model | Customer not found; invalid address type; missing mandatory country-specific fields; overlapping primary address; idempotency conflict. |
 | Evidence required | Address evidence reference, verification status, actor, timestamp, and effective period. |
@@ -126,11 +147,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Submit Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Lifecycle |
-| Command | Submit Customer |
+| Command / query / view name | Submit Customer |
 | Purpose | Mark a draft or prospective customer as ready for activation review or downstream processing. |
 | Actor and authorization | Back-office user, onboarding conversion process, or authorized API client with customer-submit permission. |
 | Inputs | Customer identifier, submission reason, completeness confirmation, supporting evidence references, and idempotency key. |
@@ -138,7 +159,7 @@ The purpose is method validation. The operation set is intentionally representat
 | Invariants | Submission does not activate the customer; submission cannot bypass mandatory data validation; submitted snapshot is auditable. |
 | State transition | Draft or Prospective -> Submitted. |
 | Accounting consequence | Not applicable. |
-| Business events | Customer Profile Changed |
+| Business events | Customer Submitted; Customer Profile Changed |
 | Idempotency rule | Repeated submission with the same idempotency key returns the same Submitted state and does not duplicate history entries. |
 | Error model | Customer not found; invalid lifecycle state; mandatory data incomplete; missing waiver approval; idempotency conflict. |
 | Evidence required | Completeness validation result, submitted data snapshot, actor, timestamp, and waiver references where applicable. |
@@ -146,11 +167,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Activate Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Lifecycle |
-| Command | Activate Customer |
+| Command / query / view name | Activate Customer |
 | Purpose | Make a submitted customer eligible for product origination, servicing, and contract reference. |
 | Actor and authorization | Back-office user, approved workflow, onboarding conversion process, or authorized API client with customer-activate permission. |
 | Inputs | Customer identifier, activation date, approval reference, onboarding or due-diligence reference where applicable, and idempotency key. |
@@ -166,11 +187,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Close Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Lifecycle |
-| Command | Close Customer |
+| Command / query / view name | Close Customer |
 | Purpose | Close a customer master record when the institution no longer maintains an active customer relationship. |
 | Actor and authorization | Back-office user, approved workflow, migration/offboarding process, or authorized API client with customer-close permission. |
 | Inputs | Customer identifier, closure reason, closure date, supporting evidence reference, unresolved-obligation check result, and idempotency key. |
@@ -186,11 +207,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Transfer Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Servicing Assignment |
-| Command | Transfer Customer |
+| Command / query / view name | Transfer Customer |
 | Purpose | Move institutional servicing ownership of a customer to another office, branch, segment, or responsible staff assignment. |
 | Actor and authorization | Back-office user, approved workflow, organizational maintenance process, or authorized API client with customer-transfer permission. |
 | Inputs | Customer identifier, source office, target office, effective date, transfer reason, staff assignment where applicable, and idempotency key. |
@@ -206,11 +227,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Link Related Party
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Relationships |
-| Command | Link Related Party |
+| Command / query / view name | Link Related Party |
 | Purpose | Record a typed relationship between a customer and another party, such as guarantor, beneficiary, signatory, director, related organization, household member, or group member. |
 | Actor and authorization | Back-office user, onboarding conversion process, servicing workflow, or authorized API client with relationship-management permission. |
 | Inputs | Customer identifier, related party identifier or reference, relationship type, role, effective period, evidence reference, and idempotency key. |
@@ -218,7 +239,7 @@ The purpose is method validation. The operation set is intentionally representat
 | Invariants | Relationship history is preserved; relationship type determines semantics and cannot be treated as a generic note; active relationship periods do not conflict with exclusivity rules. |
 | State transition | Relationship is added as active, pending verification, or historical according to effective period and verification status. |
 | Accounting consequence | Not applicable. |
-| Business events | Customer Profile Changed |
+| Business events | Customer Relationship Linked; Customer Profile Changed |
 | Idempotency rule | A repeated link request with the same idempotency key and relationship payload returns the existing relationship record. |
 | Error model | Customer not found; related party not found; unsupported relationship type; invalid role; conflicting active relationship; idempotency conflict. |
 | Evidence required | Relationship evidence, consent or authority where required, actor, timestamp, and effective period. |
@@ -226,11 +247,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: Restrict Customer
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer Status and Restrictions |
-| Command | Restrict Customer |
+| Command / query / view name | Restrict Customer |
 | Purpose | Apply an operational restriction to a customer without closing the customer master record. |
 | Actor and authorization | Back-office user, compliance workflow, risk workflow, or authorized API client with customer-restriction permission. |
 | Inputs | Customer identifier, restriction type, reason code, effective period, review date, source reference, and idempotency key. |
@@ -238,7 +259,7 @@ The purpose is method validation. The operation set is intentionally representat
 | Invariants | Restrictions are explicit and auditable; restrictions do not silently alter balances or contracts; downstream capabilities must evaluate relevant active restrictions before allowed operations. |
 | State transition | Customer receives an active restriction, or customer status changes to Suspended where the restriction policy requires it. |
 | Accounting consequence | Not applicable. |
-| Business events | Customer Profile Changed |
+| Business events | Customer Restricted; Customer Profile Changed |
 | Idempotency rule | A repeated restriction request with the same idempotency key and restriction payload returns the existing restriction record. |
 | Error model | Customer not found; unsupported restriction type; insufficient authority; conflicting restriction; missing review date; idempotency conflict. |
 | Evidence required | Reason code, source reference, actor, timestamp, effective period, and review date. |
@@ -246,11 +267,11 @@ The purpose is method validation. The operation set is intentionally representat
 
 ### Operation: View Customer History
 
-| Specification element | Description |
+| Specification element | Value |
 |---|---|
 | Owning capability | Customer Management |
 | Feature | Customer History and Audit View |
-| Command | View Customer History |
+| Command / query / view name | View Customer History |
 | Purpose | Retrieve the customer timeline, profile changes, lifecycle transitions, relationship changes, and evidence references for servicing or investigation. |
 | Actor and authorization | Back-office user, auditor, compliance user, support user, or authorized API client with customer-history permission. |
 | Inputs | Customer identifier, date range, event type filters, field-level access context, and correlation identifier. |
@@ -266,16 +287,18 @@ The purpose is method validation. The operation set is intentionally representat
 
 ## Cross-Capability Collaborations
 
-| Source operation | Collaborating capability | Collaboration type | Expected contract or evidence |
-|---|---|---|---|
-| Create Customer | Customer Onboarding / KYC | Event or command handoff | Onboarding approval or conversion reference when creation follows onboarding. |
-| Activate Customer | Customer Onboarding / KYC | Query or evidence reference | Due-diligence acceptance, remediation status, and activation eligibility where required. |
-| Create Customer; Transfer Customer | Organization Management | Query | Active office, branch, center, staff, and assignment validation. |
-| Activate Customer; Restrict Customer | Product Catalog | Query | Product eligibility may consume customer type, segment, and restriction state. |
-| Link Related Party | Loan / Savings / Deposit / Share / Card Management | Query or event | Product domains consume holder, borrower, guarantor, beneficiary, signatory, and authorized-user roles. |
-| Add Address; Update Profile | Notification | Event | Contact and preference changes may update notification routing and consent views. |
-| All state-changing operations | Audit | Event | Actor, timestamp, diff, reason, source reference, and correlation context. |
-| View Customer History | Audit | Query and event | Sensitive history access may require audit evidence. |
+| Local operation | Collaborating capability | Direction | Interaction type | External trigger / consumed input | Produced output | Purpose |
+|---|---|---|---|---|---|---|
+| Create Customer | Customer Onboarding / KYC | Inbound | Command / Event / Evidence reference | Approved onboarding case, onboarding conversion request, or Onboarding Approved event. | Customer Created; customer reference; onboarding source reference retained. | Convert an accepted applicant into a customer master record. |
+| Activate Customer | Customer Onboarding / KYC | Inbound | Query / Evidence reference | Due-diligence acceptance, screening status, remediation status, and activation eligibility evidence. | Customer Activated; activation eligibility evidence retained. | Ensure activation does not bypass onboarding or due-diligence controls. |
+| Create Customer | Organization Management | Outbound | Query | Active servicing office, center, staff assignment, and organizational scope. | Customer Created with valid servicing assignment. | Ensure the customer master is created under a valid servicing context. |
+| Transfer Customer | Organization Management | Outbound | Query | Active target office, branch, center, staff, and transfer eligibility. | Customer Transferred. | Ensure servicing assignment changes reference valid organization structures. |
+| Activate Customer | Product Catalog | Outbound | Query | Product eligibility context where activation depends on customer type, segment, or restriction state. | Customer Activated or activation rejected. | Ensure activation produces a customer usable for eligible product origination. |
+| Restrict Customer | Product Catalog / Product Domains | Outbound | Event / Query | Active customer restriction state and restriction semantics. | Customer Restricted; Customer Profile Changed. | Make restrictions visible to downstream eligibility and servicing checks. |
+| Link Related Party | Loan / Savings / Deposit / Share / Card Management | Outbound | Event / Query | Typed relationship role, related-party reference, effective period, and evidence. | Customer Relationship Linked; Customer Profile Changed. | Allow product domains to evaluate holders, borrowers, guarantors, beneficiaries, signatories, and authorized users. |
+| Add Address; Update Profile | Notification | Outbound | Event | Contact details, language, consent, preference, and address changes. | Customer Address Added or Customer Profile Changed. | Allow notification routing and consent views to update from customer master changes. |
+| All state-changing operations | Audit | Outbound | Event / Evidence reference | Actor, authorization, timestamp, diff, reason, source reference, idempotency key, and correlation context. | Audit evidence reference or auditable event record. | Preserve operation evidence without transferring customer-state ownership to Audit. |
+| View Customer History | Audit | Bidirectional | Query / Event / Evidence reference | Actor, access scope, filters, masking decision, and sensitive-access policy. | Customer history view; access log or sensitive-access audit event where required. | Prove governed read access and trace sensitive customer-history retrieval. |
 
 ## Implementation Notes
 
@@ -283,7 +306,7 @@ The purpose is method validation. The operation set is intentionally representat
 |---|---|
 | Suggested service or module boundary | Customer Management can be a customer-master bounded context or service owning customer profile, lifecycle, identifiers, relationships, and servicing assignment. |
 | API resources or endpoints | Likely resources include customers, identifiers, addresses, relationships, restrictions, assignments, and customer history. |
-| Events to publish or consume | Publish Customer Created, Customer Activated, Customer Profile Changed, Customer Transferred, and Customer Closed. Consume onboarding approval or customer-conversion events where Customer Onboarding / KYC is separate. |
+| Events to publish or consume | Publish Customer Created, Customer Activated, Customer Profile Changed, Customer Identifier Added, Customer Address Added, Customer Submitted, Customer Relationship Linked, Customer Restricted, Customer Transferred, and Customer Closed. Consume onboarding approval or customer-conversion events where Customer Onboarding / KYC is separate. |
 | Data ownership and persistence | Own customer master and relationship history. Do not own onboarding case evidence, credentials, product contracts, financial transactions, or ledger entries. |
 | Batch or periodic processing | Periodic tasks may identify stale draft customers, expired restrictions, or profile remediation needs, but state changes should still be expressed as domain operations. |
 | Audit and observability | Every state-changing operation should preserve actor, reason, changed fields, source reference, idempotency key, and correlation identifier. |
@@ -295,19 +318,20 @@ The purpose is method validation. The operation set is intentionally representat
 |---|---|
 | Native / configured / custom / partner / BPO distinction | Customer master ownership should be distinguished from externally provided onboarding, KYC, AML, CRM, or identity services. |
 | Evidence required from vendor or implementation team | API docs, event catalogue, data model excerpt, duplicate-check behavior, audit trail sample, migration mapping, and sandbox evidence. |
-| Sandbox test coverage | Create, submit, activate, update, add identifier, add address, transfer, restrict, close, and retrieve history. |
+| Sandbox test coverage | P0 coverage should include create, update profile, add identifier, add address, submit, activate, restrict, and retrieve history. P1 candidates should test update address and lift customer restriction when the scenario needs lifecycle-completing counterparts. |
 | Known gap patterns | Customer and user identity collapsed; onboarding and customer master mixed; identifiers not scoped; relationship roles modeled as free text; closure allowed despite active contracts. |
 | Acceptance criteria | Operations are atomic, auditable, idempotent where state-changing, and do not mutate product contracts, credentials, transactions, or accounting state. |
 
 ## Method Validation Notes
 
-| Question | Initial observation |
-|---|---|
-| Is the three-level taxonomy understandable? | Yes. Customer Management decomposes naturally into features and operations without forcing implementation topology. |
-| Is the operation template too heavy? | Slightly heavy for simple CRUD-like operations, but useful because it exposes authorization, evidence, idempotency, and boundary rules. |
-| Which fields should be mandatory? | Owning capability, feature, command, purpose, actor and authorization, inputs, preconditions, invariants, state transition, business events, idempotency, error model, evidence, and test scenario. |
-| Which fields can be optional? | Accounting consequence can be optional or explicitly marked Not applicable for non-financial operations. |
-| Does the doc belong beside the capability chapter? | For the pilot, yes. It keeps the decomposition close to the capability while avoiding clutter in the main chapter. |
-| Can this scale to Payment Processing? | Yes, but Payment Processing will need stricter feature boundaries and possibly fewer operations per document to remain readable. |
-| Should read-only operations be included? | Include only where they represent an important governed business view, such as View Customer History. Most ordinary queries should stay out of operation specs. |
+| Question                                           | Initial observation                                                                                                                                                                                 |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Is the three-level taxonomy understandable?        | Yes. Customer Management decomposes naturally into features and operations without forcing implementation topology.                                                                                 |
+| Is the operation template too heavy?               | Slightly heavy for simple CRUD-like operations, but useful because it exposes authorization, evidence, idempotency, and boundary rules.                                                             |
+| Which fields should be mandatory?                  | Owning capability, feature, purpose, actor and authorization, inputs, preconditions, invariants, state transition, error model, evidence, and test scenario remain mandatory. |
+| Which fields are conditional?                      | Command / query / view name, accounting consequence, business events, and idempotency rule are conditional and should be completed or explicitly marked None / Not applicable. |
+| Does the doc belong beside the capability chapter? | For the pilot, yes. It keeps the decomposition close to the capability while avoiding clutter in the main chapter.                                                                                  |
+| Can this scale to Payment Processing?              | Yes, but Payment Processing will need stricter feature boundaries and possibly fewer operations per document to remain readable.                                                                    |
+| Does the collaboration table work?                 | Yes, if expressed as an operation-level contract map with direction, interaction type, consumed input, produced output, and purpose.                                                               |
+| Should read-only operations be included?           | Include only where they represent an important governed business view, such as View Customer History. Use State transition = None, Business events = None unless access is business-significant, and Idempotency rule = Not applicable. |
 

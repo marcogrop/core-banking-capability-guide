@@ -51,11 +51,11 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 ### 2. Method Validation
 
 - [x] Create Customer Management operations pilot.
-- [ ] Review Customer Management operations pilot.
-- [ ] Polish Customer Management operations pilot.
-- [ ] Decide whether operation documents should live beside capability chapters or under a dedicated operations folder.
-- [ ] Capture lessons learned from Customer Management.
-- [ ] Create a reusable review checklist for future operation documents.
+- [x] Review Customer Management operations pilot.
+- [x] Polish Customer Management operations pilot.
+- [x] Decide whether operation documents should live beside capability chapters or under a dedicated operations folder.
+- [x] Capture lessons learned from Customer Management.
+- [x] Create a reusable review checklist for future operation documents.
 
 ### 3. Capability Decomposition PoC
 
@@ -125,7 +125,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 
 ## Open Decisions
 
-- [ ] Should operation documents live beside capability chapters or under a dedicated `operations/` folder?
+- [x] Operation-decomposition documents live in a dedicated first-class `07-operations/` folder. Capability chapters remain the canonical capability summaries and link to their operation documents.
 - [ ] Should every capability eventually get an operations document, or only selected PoC capabilities first?
 - [ ] Should the first PoC focus only on retail payment accounts?
 - [ ] Should governed read operations be included selectively, or should operation docs contain only state-changing operations?

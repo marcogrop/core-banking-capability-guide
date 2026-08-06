@@ -11,12 +11,13 @@ This index collects the directional collaboration descriptions defined by each c
 
 | Owning capability | Related capability or group | Interaction |
 |---|---|---|
+| [Customer Management](../01-business-capabilities/01-customer-management.md) | Customer Onboarding / KYC | Consumes onboarding approval, due-diligence evidence, and conversion context when customer creation or activation follows onboarding. |
 | [Customer Management](../01-business-capabilities/01-customer-management.md) | Organization Management | Assigns the servicing office, center, and responsible staff. |
 | [Customer Management](../01-business-capabilities/01-customer-management.md) | Identity & Security | May link a customer to a self-service digital identity, but does not authenticate the person itself. |
 | [Customer Management](../01-business-capabilities/01-customer-management.md) | Product Catalog | Supplies eligibility context and segmentation attributes used during product selection. |
 | [Customer Management](../01-business-capabilities/01-customer-management.md) | Loan / Savings / Deposit / Share Management | Contracts reference the customer master as holder, borrower, member, guarantor, or beneficiary. |
 | [Customer Management](../01-business-capabilities/01-customer-management.md) | Notification | Uses verified contact points, language, consent, and channel preferences. |
-| [Customer Management](../01-business-capabilities/01-customer-management.md) | Reporting and Audit | Consume the customer reference to produce consolidated views and trace changes. |
+| [Customer Management](../01-business-capabilities/01-customer-management.md) | Reporting and Audit | Consume customer references, customer events, governed history views, and audit evidence to produce consolidated views and trace changes. |
 | [Organization Management](../01-business-capabilities/02-organization-management.md) | Customer Management | Customers are owned and serviced through an office or center. |
 | [Organization Management](../01-business-capabilities/02-organization-management.md) | Identity & Security | Roles and permissions are often constrained by office scope. |
 | [Organization Management](../01-business-capabilities/02-organization-management.md) | Loan and Deposit Domains | Contracts record branch, officer, and fund attribution. |

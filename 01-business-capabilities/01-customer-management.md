@@ -29,6 +29,10 @@ source: Core Banking Capability Reference Guide, Edition 1.0
 - Control customer status, activation, transfer between offices, and closure.
 - Provide a consistent customer reference for contracts, reporting, notifications, and audit.
 
+## Operation Decomposition
+
+Detailed feature and business-operation decomposition for this capability is maintained in [Customer Management Operations](../07-operations/01-customer-management-operations.md).
+
 ## Why It Matters
 
 - A bank cannot safely consolidate exposure, service history, consent, or risk information without a reliable customer master.

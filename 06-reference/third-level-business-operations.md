@@ -45,7 +45,7 @@ Each Business Operation should be specified with enough detail to support implem
 | Feature | Mandatory | Functional grouping within the capability. |
 | Command / query / view | Conditional | Imperative request for state-changing operations; query or view name for read-only governed views. |
 | Purpose | Mandatory | Business outcome supported by the operation. |
-| Actor and authorization | Mandatory | Who or what may request the operation and which authority is required. |
+| Actor and authorization | Mandatory | Who or what may request the operation, and which permission, workflow approval, policy authority, or delegated control is required. |
 | Inputs | Mandatory | Required and optional request data, identifiers, amounts, dates, filters, references, and evidence. |
 | Preconditions | Mandatory | Facts that must already be true before execution or view access. |
 | Invariants | Mandatory | Rules that must remain true before and after execution, or during controlled access for read-only views. |
@@ -68,6 +68,7 @@ Each Business Operation should be specified with enough detail to support implem
 | Business events are conditional | State-changing operations normally emit business events; read-only governed views normally do not. |
 | Idempotency is conditional | State-changing commands should define idempotency behavior; read-only governed views normally mark it Not applicable. |
 | Implementation detail does not replace business specification | API endpoint names, table names, and screen names may be added later, but they do not replace operation purpose, state transition, invariants, and evidence. |
+| Concrete operation specs provide values only | Requirement levels are defined once in this taxonomy. Operation-instance tables should not repeat Mandatory / Conditional classifications; they should provide the actual value, using None or Not applicable where appropriate. |
 
 ## Read-Only Governed Views
 
@@ -165,6 +166,28 @@ Use this compact table when recording why specific features and operations were 
 |---|---|---|---|---|---|---|
 |  |  |  |  | P0 / P1 / P2 / P3 | Identified / Candidate / Selected / Drafted / Reviewed / Approved / Deferred |  |
 
+## Cross-Capability Collaboration Contracts
+
+Cross-capability collaborations should be specified as operation-level contracts rather than generic relationship statements. They describe the required business contract between capabilities, not mandatory runtime topology.
+
+Cross-capability collaborations must identify direction, interaction style, consumed input, produced output, and business purpose.
+
+| Field | Meaning |
+|---|---|
+| Local operation | Operation in the current capability that participates in the collaboration. |
+| Collaborating capability | External CBCM capability or capability group involved in the collaboration. |
+| Direction | Inbound, Outbound, or Bidirectional from the perspective of the local operation. |
+| Interaction type | Command, Event, Query, Evidence reference, Workflow, or Manual evidence. |
+| External trigger / consumed input | Fact, request, event, query result, evidence, or decision needed by the local operation. |
+| Produced output | Event, reference, decision, evidence, state, or response produced by the local operation. |
+| Purpose | Business reason the collaboration exists. |
+
+Use this template when recording collaboration contracts:
+
+| Local operation | Collaborating capability | Direction | Interaction type | External trigger / consumed input | Produced output | Purpose |
+|---|---|---|---|---|---|---|
+|  |  | Inbound / Outbound / Bidirectional | Command / Event / Query / Evidence reference / Workflow / Manual evidence |  |  |  |
+
 ## Implementation Guidance
 
 Use the taxonomy to derive platform implementation work:
@@ -253,6 +276,18 @@ Examples:
 | Record Settlement | Payment Settled |
 | Request Screening | Screening Requested |
 | Record Screening Result | Screening Result Recorded |
+
+### Event Granularity Guidance
+
+Prefer precise business events when an operation has a specific committed outcome. Broader summary events may coexist when they support integration, reporting, history views, or backward-compatible consumers, but they should not replace the more precise domain fact.
+
+Examples:
+
+| Operation | Precise event | Optional broader event |
+|---|---|---|
+| Add Identifier | Customer Identifier Added | Customer Profile Changed |
+| Add Address | Customer Address Added | Customer Profile Changed |
+| Restrict Customer | Customer Restricted | Customer Profile Changed |
 
 ### Naming Anti-Patterns
 
