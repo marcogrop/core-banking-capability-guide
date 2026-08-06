@@ -132,13 +132,65 @@ This avoids comparing vendor module names directly. A vendor may claim to suppor
 
 ## Naming Conventions
 
+Names should use business language rather than implementation language. A stable CBCM name should remain useful whether the operation is implemented through an API, workflow, batch job, vendor product, partner service, or manual process.
+
 | Item | Convention | Example |
 |---|---|---|
-| Capability | Noun phrase expressing responsibility | Payment Processing |
-| Feature | Noun phrase expressing functional area | SEPA Credit Transfer |
-| Business Operation | Verb phrase expressing business action | Record Settlement |
-| Command | Imperative verb phrase | Record Settlement |
-| Business Event | Past-tense committed fact | Payment Settled |
+| Capability | Noun phrase naming a stable business responsibility. | Payment Processing |
+| Feature | Noun phrase naming a coherent functional area inside a capability. | SEPA Credit Transfer |
+| Business Operation | Verb phrase naming a business action or governed view. | Record Settlement |
+| Command | Imperative verb phrase, usually the same as the operation for state-changing operations. | Record Settlement |
+| Query / View | Read verb phrase for read-only governed views. | View Customer History |
+| Business Event | Past-tense committed fact. | Payment Settled |
+
+### Verb Guidance
+
+| Verb pattern | Use when | Example |
+|---|---|---|
+| Create X | Creating a new owned domain record. | Create Customer |
+| Update X | Amending existing state without changing lifecycle state. | Update Profile |
+| Submit X | Moving something into review, approval, or processing. | Submit Customer |
+| Activate X | Making something usable, effective, or eligible for downstream use. | Activate Customer |
+| Suspend X | Temporarily restricting use while preserving the record. | Suspend Card |
+| Close X | Ending a lifecycle while preserving history. | Close Customer |
+| Record X | Capturing an external or already-occurred fact. | Record Settlement |
+| Request X | Initiating a process whose outcome is not yet known. | Request Screening |
+| Approve X | Approval itself is a meaningful domain fact. | Approve Limit |
+| Reject X | Rejection itself is a meaningful domain fact. | Reject Onboarding |
+| Reverse X | Creating an explicit compensating correction that preserves history. | Reverse Payment |
+| View / Search / Retrieve / List / Export X | Read-only governed view. | View Customer History |
+
+### Event Naming Rules
+
+| Rule | Explanation | Example |
+|---|---|---|
+| Use past tense | Events describe committed facts after they occur. | Customer Activated |
+| Do not name events as requests | A request is a command; the event is the committed outcome. | Use Screening Requested only after the screening request is actually recorded. |
+| Prefer precise outcomes | Avoid broad event names when a more specific business fact exists. | Payment Settled instead of Payment Processed |
+| Name meaningful failures selectively | Use failure/rejection events only when the negative outcome is itself a business fact. | Payment Rejected may be valid; Customer Update Failed is usually an error response. |
+| Split materially different outcomes | If outcomes drive different downstream behavior, give them distinct events. | Payment Returned; Payment Recalled; Payment Reversed |
+| Preserve domain ownership in event names | The event name should reflect the capability that owns the committed fact. | Customer Closed belongs to Customer Management. |
+
+Examples:
+
+| Operation | Event |
+|---|---|
+| Activate Customer | Customer Activated |
+| Close Customer | Customer Closed |
+| Record Settlement | Payment Settled |
+| Request Screening | Screening Requested |
+| Record Screening Result | Screening Result Recorded |
+
+### Naming Anti-Patterns
+
+| Avoid | Prefer | Reason |
+|---|---|---|
+| Manage Customer | Create Customer; Update Profile; Close Customer | Manage is too broad to test or implement as an atomic operation. |
+| Process Payment | Validate Payment; Route Payment; Submit to Clearing | Process hides lifecycle stages and failure points. |
+| Handle Error | Reject Payment; Return Payment; Record Repair | The business outcome should be explicit. |
+| Do KYC | Request Screening; Record Screening Result; Approve Onboarding | The work spans multiple operations and capabilities. |
+| Update Status | Activate Customer; Suspend Customer; Close Customer | Status changes should reveal business meaning. |
+| Sync Data | Import Data; Export Data; Publish Event | Sync is implementation-oriented and ambiguous. |
 
 ## Reusable Template
 

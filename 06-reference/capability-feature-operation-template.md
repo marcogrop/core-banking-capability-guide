@@ -31,11 +31,13 @@ Use this template when decomposing a CBCM capability into implementable features
 
 ### Operation: `<Verb Phrase>`
 
+Use a business verb phrase such as `Activate Customer`, `Record Settlement`, or `View Customer History`. Avoid vague names such as `Manage`, `Process`, `Handle`, or `Update Status` unless they are decomposed into more precise business operations.
+
 | Specification element | Requirement | Description |
 |---|---|---|
 | Owning capability | Mandatory |  |
 | Feature | Mandatory |  |
-| Command / query / view | Conditional |  |
+| Command / query / view name | Conditional |  |
 | Purpose | Mandatory |  |
 | Actor and authorization | Mandatory |  |
 | Inputs | Mandatory |  |
