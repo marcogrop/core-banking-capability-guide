@@ -1,5 +1,6 @@
 # Build Manifest
 
+- Model title: Canonical Banking Capability Model (CBCM)
 - Source: `Core_Banking_Capability_Reference_Guide.docx`
 - Reference edition: 1.0
 - Source date: July 2026

@@ -1,6 +1,8 @@
-# Core Banking Capability Reference Guide
+# Canonical Banking Capability Model (CBCM)
 
-A structured, implementation-independent reference for understanding the business boundaries and interactions of a modern composable core banking platform. The model is inspired by Apache Fineract and common banking architecture patterns, but it is not a vendor implementation manual.
+The Canonical Banking Capability Model (CBCM) is a structured, implementation-independent model for defining, implementing, governing, and evaluating modern banking platforms. It is inspired by Apache Fineract and common banking architecture patterns, but it is not a vendor implementation manual.
+
+This project originated as the Core Banking Capability Reference Guide and is evolving into the Canonical Banking Capability Model (CBCM). Historical source labels may still refer to the original guide where they describe provenance rather than the current model identity.
 
 ## What Is Included
 
@@ -25,23 +27,25 @@ A structured, implementation-independent reference for understanding the busines
 
 ```text
 core-banking-capability-guide/
-├── README.md
-├── SUMMARY.md
-├── 00-foundations/
-├── 01-business-capabilities/
-├── 02-policy-capabilities/
-├── 03-financial-infrastructure/
-├── 04-information-capabilities/
-├── 05-platform-capabilities/
-├── 06-reference/
-└── assets/images/
+|-- README.md
+|-- SUMMARY.md
+|-- 00-foundations/
+|-- 01-business-capabilities/
+|-- 02-policy-capabilities/
+|-- 03-financial-infrastructure/
+|-- 04-information-capabilities/
+|-- 05-platform-capabilities/
+|-- 06-reference/
+|-- 07-research/
+|-- 08-RFP/
+`-- assets/images/
 ```
 
-Research and evolution material is kept in `07-research/`.
+The repository/folder name is retained for now. Research and evolution material is kept in `07-research/`.
 
 ## Documentation Conventions
 
-Each capability file contains YAML front matter with a stable identifier, capability number, category, architectural layer, primary record, and criticality where available. Commands request state changes; Business Events describe committed facts. Domain diagrams are conceptual ownership models rather than physical schemas.
+Each capability file contains YAML front matter with a stable identifier, capability number, category, architectural layer, primary record, criticality, and historical source where available. Commands request state changes; Business Events describe committed facts. Domain diagrams are conceptual ownership models rather than physical schemas.
 
 ## Intended Use
 
