@@ -26,7 +26,7 @@ This project originated as the Core Banking Capability Reference Guide and is ev
 ## Repository Structure
 
 ```text
-core-banking-capability-guide/
+canonical-banking-capability-model/
 |-- README.md
 |-- SUMMARY.md
 |-- 00-foundations/
