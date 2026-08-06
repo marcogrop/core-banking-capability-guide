@@ -48,6 +48,7 @@
   - [Capability Feature Operation Template](06-reference/capability-feature-operation-template.md)
   - [CBCM Glossary](06-reference/glossary.md)
   - [Document Status and Intended Use](06-reference/status-and-intended-use.md)
-- Research and Evolution
-  - [Vendor Capability Research](07-research/vendor-capability-research.md)
-  - [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)
+- Research and Evaluations
+  - [Vendor Capability Research](07-research-and-evaluations/vendor-capability-research.md)
+  - [CBCM Gap Assessment](07-research-and-evaluations/cbcm-gap-assessment.md)
+  - [Review Customer Management Operations Pilot](07-research-and-evaluations/review-customer-management-operations-pilot.md)

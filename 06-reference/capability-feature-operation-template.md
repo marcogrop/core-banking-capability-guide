@@ -63,9 +63,11 @@ Use `None` for `State transition` when the operation is a read-only governed vie
 
 ## Cross-Capability Collaborations
 
-| Source operation | Collaborating capability | Collaboration type | Expected contract or evidence |
-|---|---|---|---|
-|  |  | Command / Event / Query / Workflow / Batch / Manual Evidence |  |
+Cross-capability collaborations describe operation-level business contracts, not mandatory runtime topology.
+
+| Local operation | Collaborating capability | Direction | Interaction type | External trigger / consumed input | Produced output | Purpose |
+|---|---|---|---|---|---|---|
+|  |  | Inbound / Outbound / Bidirectional | Command / Event / Query / Evidence reference / Workflow / Manual evidence |  |  |  |
 
 ## Implementation Notes
 

@@ -21,7 +21,7 @@ This project originated as the Core Banking Capability Reference Guide and is ev
 4. [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
 5. [Three-Level Capability Taxonomy](06-reference/third-level-business-operations.md)
 6. [Capability Feature Operation Template](06-reference/capability-feature-operation-template.md)
-7. [CBCM Gap Assessment](07-research/cbcm-gap-assessment.md)
+7. [CBCM Gap Assessment](07-research-and-evaluations/cbcm-gap-assessment.md)
 
 ## Repository Structure
 
@@ -37,12 +37,12 @@ canonical-banking-capability-model/
 |-- 04-information-capabilities/
 |-- 05-platform-capabilities/
 |-- 06-reference/
-|-- 07-research/
+|-- 07-research-and-evaluations/
 `-- assets/images/
 ```
 
-Research and evolution material is kept in `07-research/`.
-Roadmap is published int TODO.md
+Research and evaluation material is kept in `07-research-and-evaluations/`.
+Roadmap is published in [TODO.md](TODO.md).
 
 ## Documentation Conventions
 

@@ -17,4 +17,5 @@ The following patterns summarize the most important forms of collaboration in th
 | **Asynchronous reaction pattern** | Committed Business Events drive Notification, Reporting projections, Integration delivery, Search indexing, and Audit correlation.              |
 | **Periodic processing pattern**   | Batch Processing invokes domain commands using Business Date and Configuration while Administration controls execution.                         |
 | **Approval pattern**              | Workflow & Approval authorizes a requested operation; Identity & Security verifies authority; the target domain revalidates and commits.        |
+| **Operation contract map pattern** | Operation-level collaborations identify direction, interaction type, consumed input, produced output, and purpose without prescribing runtime topology. |
 | **Correction pattern**            | The owning domain creates an explicit reversal or adjustment, Accounting posts compensating journals, and Audit preserves both histories.       |
