@@ -13,17 +13,13 @@ source: Canonical Banking Capability Model (CBCM), Method Validation Review
 Overall clear, structured and not too overengineered.
 
 ## Changes To Apply Before Reuse
-1. [01-customer-management-operations.md (line 49)](C:/Users/MarcoSegato/OneDrive/Scalapay/projects/canonical-banking-capability-model/01-business-capabilities/01-customer-management-operations.md:49) still uses two-column operation tables:
+1. Operation tables should stay two-column at the operation-instance level:
 
 ```
-| Specification element | Description |
+| Specification element | Value |
 ```
 
-The updated template uses:
-
-```
-| Specification element | Requirement | Description |
-```
+The mandatory/conditional classification is defined centrally in the taxonomy and should not be repeated in each operation table.
 
 2. It still uses `Command` as the field label. The updated foundation uses:
 

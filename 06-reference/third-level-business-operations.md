@@ -68,6 +68,7 @@ Each Business Operation should be specified with enough detail to support implem
 | Business events are conditional | State-changing operations normally emit business events; read-only governed views normally do not. |
 | Idempotency is conditional | State-changing commands should define idempotency behavior; read-only governed views normally mark it Not applicable. |
 | Implementation detail does not replace business specification | API endpoint names, table names, and screen names may be added later, but they do not replace operation purpose, state transition, invariants, and evidence. |
+| Concrete operation specs provide values only | Requirement levels are defined once in this taxonomy. Operation-instance tables should not repeat Mandatory / Conditional classifications; they should provide the actual value, using None or Not applicable where appropriate. |
 
 ## Read-Only Governed Views
 

@@ -41,23 +41,25 @@ Use this section to record which features and operations are selected for the cu
 
 Use a business verb phrase such as `Activate Customer`, `Record Settlement`, or `View Customer History`. Avoid vague names such as `Manage`, `Process`, `Handle`, or `Update Status` unless they are decomposed into more precise business operations.
 
-| Specification element | Requirement | Description |
-|---|---|---|
-| Owning capability | Mandatory |  |
-| Feature | Mandatory |  |
-| Command / query / view name | Conditional |  |
-| Purpose | Mandatory |  |
-| Actor and authorization | Mandatory |  |
-| Inputs | Mandatory |  |
-| Preconditions | Mandatory |  |
-| Invariants | Mandatory |  |
-| State transition | Mandatory |  |
-| Accounting consequence | Conditional |  |
-| Business events | Conditional |  |
-| Idempotency rule | Conditional |  |
-| Error model | Mandatory |  |
-| Evidence required | Mandatory |  |
-| Sandbox or test scenario | Mandatory |  |
+Requirement levels are defined centrally in the [Three-Level Capability Taxonomy](third-level-business-operations.md). Concrete operation tables should provide values only, using `None` or `Not applicable` where a conditional field does not apply.
+
+| Specification element | Value |
+|---|---|
+| Owning capability |  |
+| Feature |  |
+| Command / query / view name |  |
+| Purpose |  |
+| Actor and authorization |  |
+| Inputs |  |
+| Preconditions |  |
+| Invariants |  |
+| State transition |  |
+| Accounting consequence |  |
+| Business events |  |
+| Idempotency rule |  |
+| Error model |  |
+| Evidence required |  |
+| Sandbox or test scenario |  |
 
 Use `None` for `State transition` when the operation is a read-only governed view. Use `Not applicable` for conditional fields that are intentionally excluded, such as accounting consequence for non-financial operations or idempotency for read-only views.
 
