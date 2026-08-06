@@ -44,10 +44,9 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [x] Formalize the three-level taxonomy: Capability -> Feature -> Business Operation.
 - [x] Add reusable capability-feature-operation template.
 - [x] Decide mandatory vs optional operation-spec fields.
-- [ ] Decide naming conventions for features, operations, commands, and events.
-- [ ] Change project name prom Capability Model to Canonical Banking Capability Model (CBCM)
-- [ ] Decide how to explicitly select a subset of the features and operations for subsequent refinement steps
-- [ ] Decide whether read-only governed views belong in operation specs.
+- [x] Decide naming conventions for features, operations, commands, and events.
+- [x] Decide how to explicitly select a subset of the features and operations for subsequent refinement steps.
+- [x] Decide whether read-only governed views belong in operation specs.
 
 ### 2. Method Validation
 
@@ -60,6 +59,7 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 
 ### 3. Capability Decomposition PoC
 
+- [ ] Select capabilities, features, and operations for first-pass PoC decomposition.
 - [ ] Finalize Customer Management operation decomposition.
 - [ ] Decompose Customer Onboarding / KYC.
 - [ ] Decompose Product Catalog.
@@ -68,12 +68,13 @@ This scope is narrow enough to be manageable, but rich enough to exercise import
 - [ ] Decompose Card Management.
 - [ ] Decompose Limits and Exposure Management.
 - [ ] Decompose Accounting outputs needed for the retail payment account scenario.
-- [ ] Decide whether this capability set is sufficient for the first PoC.
+- [ ] Decide whether this capability set is sufficient for the first PoC after scenario mapping.
 
 ### 4. Retail Payment Account Scenario
 
 - [ ] Define the canonical retail payment account scenario.
 - [ ] Define scenario boundaries and explicit out-of-scope items.
+- [ ] Apply refinement selection rules to scenario steps.
 - [ ] Map scenario steps to CBCM capabilities.
 - [ ] Map scenario steps to features and business operations.
 - [ ] Identify required commands.

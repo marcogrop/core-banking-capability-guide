@@ -92,6 +92,79 @@ Example:
 Customer Management -> Customer History and Audit View -> View Customer History
 ```
 
+## Selecting Features and Operations for Refinement
+
+CBCM does not need every feature and operation to be refined to the same depth at the same time. Refinement should be explicit, scenario-led, and decision-oriented.
+
+Use this guiding rule:
+
+```text
+Refine only the features and operations needed to prove the current scenario, resolve a boundary ambiguity, or de-risk a high-impact implementation or evaluation decision.
+```
+
+### Selection Criteria
+
+| Criterion | Selection question |
+|---|---|
+| Scenario relevance | Is the feature or operation required by the current PoC scenario or implementation increment? |
+| Business criticality | Would weak specification create material risk to customer, financial, operational, or compliance outcomes? |
+| Boundary ambiguity | Does the operation clarify ownership between capabilities, systems, teams, vendors, partners, or manual processes? |
+| Implementation uncertainty | Does the operation expose architecture, integration, data ownership, migration, or workflow choices that need early validation? |
+| Evidence need | Would the operation require audit evidence, sandbox proof, control testing, or traceable decision records? |
+| Cross-capability impact | Does the operation depend on or trigger other CBCM capabilities? |
+| Regulatory or control importance | Is the operation linked to regulated access, approvals, limits, accounting, reporting, retention, or customer protection obligations? |
+
+### Refinement Priority
+
+| Priority | Meaning | Expected treatment |
+|---|---|---|
+| P0 | Required for the current PoC scenario or implementation increment. | Refine now. Include full operation specification and test or evidence expectations. |
+| P1 | High-risk, high-ambiguity, or high-impact operation. | Refine soon enough to support architecture and delivery decisions. |
+| P2 | Useful for completeness but not needed to prove the current scenario. | Keep identified and defer detailed refinement. |
+| P3 | Outside current scope. | Defer and revisit when the scenario or platform scope expands. |
+
+### Refinement Status
+
+| Status | Meaning |
+|---|---|
+| Identified | The feature or operation is known but not yet assessed for refinement. |
+| Candidate | The feature or operation may be relevant to the current scenario or decision. |
+| Selected | The feature or operation has been selected for refinement. |
+| Drafted | A first operation specification exists. |
+| Reviewed | The specification has been reviewed against the scenario, taxonomy rules, and evidence expectations. |
+| Approved | The specification is stable enough to use in implementation, evaluation, or governance artefacts. |
+| Deferred | The feature or operation is intentionally out of current refinement scope. |
+
+### Selection Workflow
+
+1. Define the current scenario, platform increment, or decision to support.
+2. List candidate features and operations from the relevant capabilities.
+3. Score each candidate against the selection criteria.
+4. Mark P0 operations needed to prove the scenario or increment.
+5. Add P1 operations that clarify risky boundaries, controls, integrations, or evidence expectations.
+6. Defer P2 and P3 operations with a short reason.
+7. Record the decision in the capability decomposition or scenario artefact.
+
+### Retail Payment Account PoC Selection Filter
+
+For the first retail payment account PoC, select features and operations that are:
+
+| Filter | Meaning |
+|---|---|
+| Required to open and maintain the account | Customer, onboarding, product, account lifecycle, and account servicing operations needed for the basic account journey. |
+| Required to move money | Payment initiation, validation, execution, settlement, exceptions, and reconciliation operations needed for retail payments. |
+| Required to control risk and usage | Limits, holds, restrictions, approvals, and exposure operations needed to keep the account safe and compliant. |
+| Required to produce financial and audit evidence | Accounting outputs, audit trails, reporting evidence, and governed views needed to prove the platform behaves correctly. |
+| Required to define platform responsibilities | Operations that make ownership, collaboration, integration, or manual fallback decisions visible. |
+
+### Selection Decision Table
+
+Use this compact table when recording why specific features and operations were selected or deferred.
+
+| Capability | Feature | Operation | Scenario relevance | Priority | Refinement status | Reason |
+|---|---|---|---|---|---|---|
+|  |  |  |  | P0 / P1 / P2 / P3 | Identified / Candidate / Selected / Drafted / Reviewed / Approved / Deferred |  |
+
 ## Implementation Guidance
 
 Use the taxonomy to derive platform implementation work:
@@ -132,13 +205,65 @@ This avoids comparing vendor module names directly. A vendor may claim to suppor
 
 ## Naming Conventions
 
+Names should use business language rather than implementation language. A stable CBCM name should remain useful whether the operation is implemented through an API, workflow, batch job, vendor product, partner service, or manual process.
+
 | Item | Convention | Example |
 |---|---|---|
-| Capability | Noun phrase expressing responsibility | Payment Processing |
-| Feature | Noun phrase expressing functional area | SEPA Credit Transfer |
-| Business Operation | Verb phrase expressing business action | Record Settlement |
-| Command | Imperative verb phrase | Record Settlement |
-| Business Event | Past-tense committed fact | Payment Settled |
+| Capability | Noun phrase naming a stable business responsibility. | Payment Processing |
+| Feature | Noun phrase naming a coherent functional area inside a capability. | SEPA Credit Transfer |
+| Business Operation | Verb phrase naming a business action or governed view. | Record Settlement |
+| Command | Imperative verb phrase, usually the same as the operation for state-changing operations. | Record Settlement |
+| Query / View | Read verb phrase for read-only governed views. | View Customer History |
+| Business Event | Past-tense committed fact. | Payment Settled |
+
+### Verb Guidance
+
+| Verb pattern | Use when | Example |
+|---|---|---|
+| Create X | Creating a new owned domain record. | Create Customer |
+| Update X | Amending existing state without changing lifecycle state. | Update Profile |
+| Submit X | Moving something into review, approval, or processing. | Submit Customer |
+| Activate X | Making something usable, effective, or eligible for downstream use. | Activate Customer |
+| Suspend X | Temporarily restricting use while preserving the record. | Suspend Card |
+| Close X | Ending a lifecycle while preserving history. | Close Customer |
+| Record X | Capturing an external or already-occurred fact. | Record Settlement |
+| Request X | Initiating a process whose outcome is not yet known. | Request Screening |
+| Approve X | Approval itself is a meaningful domain fact. | Approve Limit |
+| Reject X | Rejection itself is a meaningful domain fact. | Reject Onboarding |
+| Reverse X | Creating an explicit compensating correction that preserves history. | Reverse Payment |
+| View / Search / Retrieve / List / Export X | Read-only governed view. | View Customer History |
+
+### Event Naming Rules
+
+| Rule | Explanation | Example |
+|---|---|---|
+| Use past tense | Events describe committed facts after they occur. | Customer Activated |
+| Do not name events as requests | A request is a command; the event is the committed outcome. | Use Screening Requested only after the screening request is actually recorded. |
+| Prefer precise outcomes | Avoid broad event names when a more specific business fact exists. | Payment Settled instead of Payment Processed |
+| Name meaningful failures selectively | Use failure/rejection events only when the negative outcome is itself a business fact. | Payment Rejected may be valid; Customer Update Failed is usually an error response. |
+| Split materially different outcomes | If outcomes drive different downstream behavior, give them distinct events. | Payment Returned; Payment Recalled; Payment Reversed |
+| Preserve domain ownership in event names | The event name should reflect the capability that owns the committed fact. | Customer Closed belongs to Customer Management. |
+
+Examples:
+
+| Operation | Event |
+|---|---|
+| Activate Customer | Customer Activated |
+| Close Customer | Customer Closed |
+| Record Settlement | Payment Settled |
+| Request Screening | Screening Requested |
+| Record Screening Result | Screening Result Recorded |
+
+### Naming Anti-Patterns
+
+| Avoid | Prefer | Reason |
+|---|---|---|
+| Manage Customer | Create Customer; Update Profile; Close Customer | Manage is too broad to test or implement as an atomic operation. |
+| Process Payment | Validate Payment; Route Payment; Submit to Clearing | Process hides lifecycle stages and failure points. |
+| Handle Error | Reject Payment; Return Payment; Record Repair | The business outcome should be explicit. |
+| Do KYC | Request Screening; Record Screening Result; Approve Onboarding | The work spans multiple operations and capabilities. |
+| Update Status | Activate Customer; Suspend Customer; Close Customer | Status changes should reveal business meaning. |
+| Sync Data | Import Data; Export Data; Publish Event | Sync is implementation-oriented and ambiguous. |
 
 ## Reusable Template
 
