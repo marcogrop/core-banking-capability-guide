@@ -27,11 +27,11 @@ The mandatory/conditional classification is defined centrally in the taxonomy an
 Command / query / view name
 ```
 
-This matters especially for [View Customer History (line 247)](C:/Users/MarcoSegato/OneDrive/Scalapay/projects/canonical-banking-capability-model/01-business-capabilities/01-customer-management-operations.md:247), which is a read-only governed view, not a command.
+This matters especially for [View Customer History (line 247)](C:/Users/MarcoSegato/OneDrive/Scalapay/projects/canonical-banking-capability-model/07-operations/01-customer-management-operations.md:247), which is a read-only governed view, not a command.
 
 3. It does not yet have a `Refinement Selection` section after the feature map. Only add enough refinement-selection metadata to show how the mechanism works. This pilot does **not** need final inclusion/exclusion decisions for every possible Customer Management operation. 
 
-4. The [Method Validation Notes (line 302)](C:/Users/MarcoSegato/OneDrive/Scalapay/projects/canonical-banking-capability-model/01-business-capabilities/01-customer-management-operations.md:302) are now stale. They say fields like `command`, `business events`, and `idempotency` are mandatory, but the updated foundation makes some of these **conditional**.
+4. The [Method Validation Notes (line 302)](C:/Users/MarcoSegato/OneDrive/Scalapay/projects/canonical-banking-capability-model/07-operations/01-customer-management-operations.md:302) are now stale. They say fields like `command`, `business events`, and `idempotency` are mandatory, but the updated foundation makes some of these **conditional**.
 
 5. Make events more outcome-specific
    Some operations currently emit `Customer Profile Changed`, but the operation has a more specific business meaning. In this case have the operation emit both the more generic and the more precise events.

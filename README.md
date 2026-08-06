@@ -11,6 +11,7 @@ This project originated as the Core Banking Capability Reference Guide and is ev
 - Extracted domain-model diagrams as named image assets.
 - Cross-capability, lifecycle, entity, command, and event indexes.
 - A glossary, three-level capability taxonomy, and business-operation specification template.
+- First-class operation-decomposition documents for selected capabilities.
 - Draft vendor-research and CBCM gap-assessment material for evolving the model while preserving vendor neutrality.
 
 ## Start Here
@@ -21,7 +22,7 @@ This project originated as the Core Banking Capability Reference Guide and is ev
 4. [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
 5. [Three-Level Capability Taxonomy](06-reference/third-level-business-operations.md)
 6. [Capability Feature Operation Template](06-reference/capability-feature-operation-template.md)
-7. [CBCM Gap Assessment](07-research-and-evaluations/cbcm-gap-assessment.md)
+7. [CBCM Gap Assessment](90-research-and-evaluations/cbcm-gap-assessment.md)
 
 ## Repository Structure
 
@@ -37,11 +38,13 @@ canonical-banking-capability-model/
 |-- 04-information-capabilities/
 |-- 05-platform-capabilities/
 |-- 06-reference/
-|-- 07-research-and-evaluations/
+|-- 07-operations/
+|-- 90-research-and-evaluations/
 `-- assets/images/
 ```
 
-Research and evaluation material is kept in `07-research-and-evaluations/`.
+Operation-decomposition documents live in the first-class `07-operations/` folder. Capability chapters remain the canonical capability summaries and link to their operation documents.
+Research and evaluation material is kept in `90-research-and-evaluations/` to signal its working nature.
 Roadmap is published in [TODO.md](TODO.md).
 
 ## Documentation Conventions

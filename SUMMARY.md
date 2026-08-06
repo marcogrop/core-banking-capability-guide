@@ -6,7 +6,6 @@
 - Capabilities
   - Business Capabilities
     - [Customer Management](01-business-capabilities/01-customer-management.md)
-      - [Customer Management Operations](01-business-capabilities/01-customer-management-operations.md)
     - [Organization Management](01-business-capabilities/02-organization-management.md)
     - [Product Catalog](01-business-capabilities/04-product-catalog.md)
     - [Loan Management](01-business-capabilities/05-loan-management.md)
@@ -37,6 +36,8 @@
     - [Administration](05-platform-capabilities/22-administration.md)
     - [Audit](05-platform-capabilities/23-audit.md)
     - [Platform Services](05-platform-capabilities/24-platform-services.md)
+- Operations
+  - [Customer Management Operations](07-operations/01-customer-management-operations.md)
 - Reference
   - [Capability Index](06-reference/capability-index.md)
   - [Capability Collaboration Patterns](06-reference/capability-collaboration-patterns.md)
@@ -49,6 +50,6 @@
   - [CBCM Glossary](06-reference/glossary.md)
   - [Document Status and Intended Use](06-reference/status-and-intended-use.md)
 - Research and Evaluations
-  - [Vendor Capability Research](07-research-and-evaluations/vendor-capability-research.md)
-  - [CBCM Gap Assessment](07-research-and-evaluations/cbcm-gap-assessment.md)
-  - [Review Customer Management Operations Pilot](07-research-and-evaluations/review-customer-management-operations-pilot.md)
+  - [Vendor Capability Research](90-research-and-evaluations/vendor-capability-research.md)
+  - [CBCM Gap Assessment](90-research-and-evaluations/cbcm-gap-assessment.md)
+  - [Review Customer Management Operations Pilot](90-research-and-evaluations/review-customer-management-operations-pilot.md)
